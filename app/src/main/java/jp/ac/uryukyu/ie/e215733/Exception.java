@@ -1,18 +1,17 @@
 package jp.ac.uryukyu.ie.e215733;
 
 public class Exception {
-    public static void main(String[] args) throws NullPointerException {
-        printLength(null);
+    public static void main(String[] args) throws NumberFormatException{
+        String str = "百二十三";
+        try{
+        Integer.parseInt(str);
     }
-        static void printLength(String str) {
-
-            try{
-            int i = str.length();
-            System.out.println(str + "は" + i + "文字");
-            }
-            catch(NullPointerException e){
-                System.out.println("エラー：NullPointerException");
-                System.out.println(e.getMessage());
-            }
+        catch (NumberFormatException e) {
+            System.out.println("Error: NumberFormatException");
+            System.out.println(e.getMessage());
+        }
+        finally{
+            System.out.println(str);
         }
     }
+}
